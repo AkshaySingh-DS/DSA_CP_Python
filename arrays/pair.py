@@ -1,3 +1,4 @@
+#method -1 (Not correct way have some issues)
 def pair(arr, s):
     hashMap = {i: True for i in arr}
     # this might not work for some cases like if we have duplicate element (2,2) or just
@@ -11,7 +12,9 @@ def pair(arr, s):
     else:
         return [-1, -1]
 
-def pair2(arr , sum): # Time O(N) and space O(N)
+#method -2 correct way 
+# Time O(N) and space O(N)
+def pair2(arr , sum): 
     hashMap = {}
 
     # logic
