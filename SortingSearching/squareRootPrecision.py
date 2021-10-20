@@ -10,12 +10,11 @@ sqaure root of 24 is 4.89897
 """
 
 def squareRoot(Num, prec):
-    number = list(range(Num+1))
     #search space
-    left, right = 0, len(number)//2
+    left, right = 0, Num//2
     ans = 0
 
-    #logic -> integer part ?
+    #logic -> integer part -> Binary search on answer?
     while left <= right:
         mid = (left + right)//2
         if mid * mid <= Num:
