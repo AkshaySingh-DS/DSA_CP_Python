@@ -41,10 +41,7 @@ def countFrequency(arr, key, n):
 
     return right - left + 1
 
-
-#try to accomplish it using recursion.
-
-if __name__ == "__main__":
+def main():
     arr = [0, 1, 1, 2, 2, 3, 3, 3, 3, 4, 5, 5, 5, 10]
     key = int(input())
     size = len(arr)
@@ -52,3 +49,8 @@ if __name__ == "__main__":
     
     #using list method in python
     print(arr.count(key))
+
+#try to accomplish it using recursion.
+
+if __name__ == "__main__":
+    main()
