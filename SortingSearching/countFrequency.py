@@ -1,46 +1,53 @@
-def lowerBoundkey(arr, key, n):
-    #code
-    start, end = 0, n-1
-    leftidx_ans = -1
-    while start <= end:
-        mid = (start+end)//2
+def binarySearch(arr, key, size):
+    #code 
+    left = 0; right = size - 1
+    while left <= right:
+        mid = (left  + right) // 2 
         if arr[mid] == key:
-            end = mid-1
-            leftidx_ans = mid
+            return mid
+
         elif arr[mid] < key:
-            start = mid+1
+            left = mid + 1
+        
         else:
-            end = mid-1
+            right = mid - 1
     
-    return leftidx_ans
-
-
-def upperBoundkey(arr, key, n):
-    #code
-    start, end = 0, n-1
-    rightidx_ans = -1
-    while start <= end:
-        mid = (start+end)//2 
-        if arr[mid] == key:
-            start = mid + 1
-            rightidx_ans = mid
-        elif arr[mid] > key:
-            end = mid - 1
-        else:
-            start = mid + 1
-
-    return rightidx_ans
+    #key not found
+    return -1
 
 def countFrequency(arr, key, n):
-    left = lowerBoundkey(arr, key, n)
-    right = upperBoundkey(arr, key, n)
+    idx = binarySearch(arr, key, n)
 
-    #key not found
-    if left == -1 or right == -1:
+    if idx == -1:
         return 0
 
-    return right - left + 1
+    #else
+    left_ans = idx; right_ans = idx
+    left = 0; right = idx - 1
+    #looking for left
+    while left <= right:
+        mid  = (left + right)//2
 
+        if arr[mid] == key:
+            left_ans = mid
+            right = mid - 1
+        else:
+            left = mid + 1
+
+    #looking for right 
+    left = idx + 1; right = n-1
+    while left <= right:
+        mid = (left + right)//2
+
+        if arr[mid] == key:
+            right_ans = mid
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return right_ans - left_ans + 1
+
+# time complexity O(log N)
 def main():
     arr = [0, 1, 1, 2, 2, 3, 3, 3, 3, 4, 5, 5, 5, 10]
     key = int(input())
@@ -48,6 +55,7 @@ def main():
     print(countFrequency(arr, key, size))
     
     #using list method in python
+    #count method of python takes O(n) time.
     print(arr.count(key))
 
 #try to accomplish it using recursion.
