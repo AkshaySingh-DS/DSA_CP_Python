@@ -3,15 +3,18 @@ Problem Statement: Find the key in the array which is sorted but might be rotate
 Time complexity -> O(log N)
 """
 
-#method - 1 using Pivot Approch (the point where data is not sorted)
-#worst/average case when data is not found o(log N)
-#best case when data itself in first middle O(1)
-#space O(1) excluding recursive calls
-#The clue is that from pivot the data value from left side and the right side always be sorted and we can easily apply binary search
+""" 
+Method - 1 using Pivot Approch (the point where data is not sorted)
+worst/average case when data is not found o(log N)
+best case when data itself in first middle O(1)
+space O(1) excluding recursive calls
+The clue is that from pivot the data value from left side and the right side always be sorted and we can easily apply binary search
+pivot element is the maximum element in rotated bnary search 
+"""
 import binarySearch
 def findPivot(arr, low, high):
-    #no such pivot exist bcoz data is not rotated but sorted
-    if low <= high:
+    #no such pivot exist bcoz data is not rotated if we have only one element left
+    if low < high:
         mid = (low + high)//2
 
         #found the pivot in these cases
@@ -41,7 +44,6 @@ def pivotedBinarySearch(arr, s, e , key):
 
     if arr[pivot] == key:
         return pivot
-
 
     #Hence data is lying between start and pivot
     if key >= arr[s]:
@@ -78,19 +80,22 @@ def rotatedBinarySearch(arr, s, e , key):
     #else data will be in left side if not in right side --> which is unsorted part
     return rotatedBinarySearch(arr, s, mid-1, key)
 
-if __name__ == "__main__":
-    #arr = [8, 9, 10 , 11 ,1 ,2 , 3 ,5 ,6,7]
-    #arr = [1, 2, 5, 6, 8 ,9 ,11, 16, 19, 25]
-    # arr = [5, 6, 8, 9, 11, 16, 19, 25, 1, 2]
-    arr = [4,5,1,2,3] 
+def main():
+    arr = [5, 6, 8, 9, 11, 16, 19, 25, 1, 2]
+    arr = [1, 2, 5, 6, 8 ,9 ,11, 16, 19, 25]
     key = int(input())
+
     ans = pivotedBinarySearch(arr, 0, len(arr)-1, key)
     if ans != -1:
         print(ans)
     else:
         print(f'ITEM {key} NOT FOUND')
+
     """ans = rotatedBinarySearch(arr, 0, len(arr)-1, key)
     if ans != -1:
         print(ans)
     else:
-        print(f'ITEM {key} NOT FOUND')"""
+        print(f'ITEM {key} NOT FOUND') """
+
+if __name__ == "__main__":
+    main()
