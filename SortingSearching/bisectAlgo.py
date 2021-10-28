@@ -14,9 +14,9 @@ def bisectIndex(a, key):
     right = bisect.bisect_right(a, key)
     return left, right 
 
-a = [6, 12, 18, 44, 48]
+a = [17 ,13, 35, 40]
 # case1 smae key present in array
-key = 12
+key = 33
 left, right = bisectIndex(a, key)
 print('case 1 : ', left, right)
 
