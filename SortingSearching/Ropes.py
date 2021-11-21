@@ -35,7 +35,7 @@ def good(arr, n, k, x):
 def maxLenOfPieces(ropes, nOfRopes, k):
     left = 0 ; right = 10 ** 7
 
-    #logic fixed no of iteration that at least should log(max ans / eps) -> 100 on most of the cases works
+    #logic fixed no of iteration that at least should log(max ans / precison) -> 100 on most of the cases works
     for _ in range(100):
 
         mid = (left + right)/2
