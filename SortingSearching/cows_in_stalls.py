@@ -15,6 +15,8 @@ example:
 
 Output:
 9 -> the largest possible minimum distance b/w two cows.
+
+Time complexity:  O(n * log (max(stalls))) -> n number of stalls
 """
 
 def good(stalls, n, k, min_distance):
