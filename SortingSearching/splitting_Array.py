@@ -14,6 +14,7 @@ example:
 Output:
 12 -> the minimum possible maximum sum on segment
 
+Time complexity -> (n* logsum(all))
 """
 def good(arr, n, mid):
     segcnt = 0; maxsum = 0
