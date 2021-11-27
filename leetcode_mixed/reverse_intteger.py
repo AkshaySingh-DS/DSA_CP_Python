@@ -2,6 +2,10 @@
 Problem Statement: Leetcode - reverse integer 
 https://leetcode.com/problems/reverse-integer/
 
+
+Approach for overflow -> 
+if ans * 10 > INT_MAX or ans > INT_MAX /10 then overflow
+AND ans * 10 < INT_MIN or ans < INT_MIN/10 then underflow
 """ 
 
 
