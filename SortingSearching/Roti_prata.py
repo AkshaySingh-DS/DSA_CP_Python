@@ -60,3 +60,86 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+CPP Solution:
+#include <iostream>
+using namespace std;
+bool good(inta mintime, int p, int cooks, int * ranks){
+    
+    int partcnt = 0;
+    
+    //logic 
+    for(int i = 0; i < cooks; i++){
+         int t = 0, j = 1;
+         
+         while (true){
+             
+             t = t + (ranks[i] * j);
+             j++;
+             
+             if (mintime < t){
+                 break;
+             }
+             
+             partcnt ++;
+         }
+    }
+    return (partcnt >= p);
+}
+int minTimeForPrata(int p, int cooks, int * ranks, int maxRanks) {
+    //search space 
+    int left = 0;
+    int right = 0;
+    int j = 1;
+    for(int cnt = 0; cnt < p; cnt++){
+        
+        right = right + j * maxRanks;
+        j++;
+    }
+    
+    //binary search logic
+    int mid, ans = 0 ;
+    while(right >= left){
+        
+        
+        mid = (left) + (right-left)/2;
+        
+        if (good(mid, p, cooks, ranks)){
+            
+            //reduce time 
+            
+            ans = mid;
+            right = mid -1;
+        }
+        else{
+            
+            left = mid + 1;
+        }
+    }
+    
+    return ans;
+}
+int main() {
+	int t;
+	int p, cooks;
+	
+	std::cin >> t;
+	for(int i = 0; i < t; i++){
+	    
+	    cin >> p ;
+	    cin >> cooks;
+	    int ranks[cooks], maxRanks = 0;
+	    
+	    for(int i = 0; i < cooks; i++){
+	        
+	        cin >> ranks[i];
+	        maxRanks = max(maxRanks, ranks[i]);
+	    }
+	    
+	    std::cout << minTimeForPrata(p, cooks, ranks, maxRanks) << std::endl;
+	}
+	
+	return 0;
+}
+"""
