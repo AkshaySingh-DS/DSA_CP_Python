@@ -19,7 +19,7 @@ example:
 4 2
 7 10
 8 1
-
+TIME COMPLEXITY : O(n * log(2*10^9)) it can be more tighest. since we are taking the constarins.
 Output:
 1.5 -> the minimum possible time it take to meet people at one point, (relative absolute error doesnt exceed 10e-6)
 """
