@@ -43,3 +43,34 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+CPP SOLUTION:
+
+vector<int> findArrayIntersection(vector<int> &arr1, int n, vector<int> &arr2, int m)
+{
+	// Write your code here.
+    int p = 0, q = 0;
+    vector<int> intersec;
+    
+    while (p < n && q < m){
+        
+        if(arr1[p] == arr2[q]){
+            
+            intersec.push_back(arr1[p]);
+            p++;
+            q++;
+        }
+          else if(arr1[p] > arr2[q]){
+              
+              q++;
+          } 
+          else{
+              
+              p++;
+          }
+    }
+    
+    return intersec;
+
+"""
