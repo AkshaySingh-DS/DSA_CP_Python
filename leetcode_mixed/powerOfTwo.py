@@ -2,6 +2,7 @@
 Problem Statement Leetcode: Power of Two
 https://leetcode.com/problems/power-of-two/
 """
+import sys
 def isPowerOfTwo(number):
     temp = 1
 
@@ -35,6 +36,30 @@ def isPowerTwoBinarySearch(number):
 
     return False
 
+
+#time coplexity O(log(number))
+def isPowerOfTwo3(number):
+    
+    setBitCnt = 0
+
+    while number:
+        
+        #get bit either 0 or 1
+        setBit = number & 1
+
+        #add this
+        setBitCnt += setBit
+
+        #if greater than power than power 2 wont be possible
+        if setBitCnt > 1:
+            return False
+
+        number = number >> 1
+    
+    #else
+    return True
+ 
+
 """ 
 CPP Problem:
 class Solution {
@@ -59,9 +84,11 @@ public:
 Time complexity: O(log(number))
 """
 def main():
-    number = int(input())
+    number = int(sys.stdin.readline().rstrip())
     #print(isPowerOfTwo(number))
-    print(isPowerTwoBinarySearch(number))
+    #print(isPowerTwoBinarySearch(number))
+    print(isPowerOfTwo3(number))
+
 
 if __name__ == "__main__":
     main()
