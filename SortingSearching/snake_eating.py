@@ -2,11 +2,14 @@
 Problem Statement:
 https://www.codechef.com/problems/SNAKEEAT
 
-TIME COMPLEXITY: O(N log N) + O(N)
+TIME COMPLEXITY: O(N log N) + O(log N) + O(log N)
 
 """
 import sys
-""" def maxSnakes(snakeslength, n, q):
+
+""" 
+#method -1 TLE
+def maxSnakes(snakeslength, n, q):
     left = 0 ; right = n - 1
     ub = -1
     #logic
@@ -42,13 +45,14 @@ import sys
     return count  """
 
 
-
+#will give the prefix sum in O(1) thats the best idea 
 def getPrefixSum(prefixSum, mid, M):
 
     #boundry case
     if mid == 0:
         return prefixSum[M]
     
+    #cummulated sum from mid to upperBound 
     return prefixSum[M] - prefixSum[mid-1]
 
 def maxSnakesSurvived(snakesLen, nsnakes, reqLen, prefixSum):
@@ -83,6 +87,7 @@ def maxSnakesSurvived(snakesLen, nsnakes, reqLen, prefixSum):
     """ 
 
     left = 0; right = upperB
+    snakes = 0
 
     while left <= right:
 
@@ -92,15 +97,17 @@ def maxSnakesSurvived(snakesLen, nsnakes, reqLen, prefixSum):
         #if this mid is good i.e. try to eatupu all mid left snakes from the mid+1 to right snakes (#snakes >= sigma(reqLen - snakesLen) from i = mid to)
         totalSnakes = reqLen * (upperB - mid + 1) - getPrefixSum(prefixSum, mid, upperB)
 
+        
         if mid >= totalSnakes:
+            #i.e. mid to upperBound suffix snakes are good enough
             #maximize suffix size i.e go to left
-            ans += totalSnakes
+            snakes = upperB - mid + 1
             right = mid - 1
         else:
             #diminish the suffiz size
             left = mid + 1
         
-    return ans
+    return ans + snakes
 
 
 t = int(sys.stdin.readline().strip())
