@@ -43,7 +43,5 @@ def main():
 
     print(f'LCM of two number is : {LCM(a, b)}')
 
-
-
 if __name__=="__main__":
     main()
