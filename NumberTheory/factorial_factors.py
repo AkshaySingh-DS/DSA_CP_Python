@@ -1,6 +1,9 @@
 """
 Problem Statement : Calculate the no of factors in a factorial 'N'
-Approach :  
+Approach : Convert the fatorial into prime factorization
+
+let N! = (p1^a) (p2^b) (p3^c)...(pn^k)
+no of factors = (a+1)(b+1)(c+1)...(k+1) 
 Time Complexity : O(N LogLogN) + (N)
 
 """
