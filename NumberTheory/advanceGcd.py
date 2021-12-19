@@ -4,6 +4,8 @@ Problem Statement : Calculate gcd of two numbers
 Constraints: 
 1 <= Number1 <= 40000
 1 <= Number2 <= 2^250
+
+TIME Complexity: O(a) + O(log b))
 """
 
 
