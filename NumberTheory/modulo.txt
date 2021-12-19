@@ -1,0 +1,10 @@
+#modulo properties
+Why we need modulonproperties?
+
+1) to avoid the overflow 
+2) to make calculation easier
+
+i) (a+b)%m = [a%m + b%m] % m
+ii) (a-b)%m = [a%m - b%m + m] % m
+iii) (a*b)%m = [a%m * b%m] % m
+iv) (a/b)%m = [a%m * b^-1%m] % m (Keep in mind about Multiplicative Modulo Inverse)
