@@ -1,6 +1,6 @@
 """
 Problem Statement: https://www.codingninjas.com/codestudio/problems/modular-exponentiation_1082146?leftPanelTab=1
-Time complexity : log O(b)
+Time complexity : O(log b)
 Space Complexity : O(log(n)) in case of recursion, in case of iterative O(1)
 """
 # a^b mod c
