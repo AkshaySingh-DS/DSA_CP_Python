@@ -1,0 +1,19 @@
+1) string and character array
+2) cin dont take white space (delemeter -> \n, space, \t)
+3) character arrays vs string ? 
+ANS: 
+-> C++ strings can contain embedded \0 characters, know their length without counting. But in case of 
+char [] or char* will take a pointer to a single char as a parameter and will track along the memory until a 0 memory 
+value is reached (often called the null terminator).
+
+->strings are faster than heap-allocated char arrays for short texts 
+and protect you from buffer overruns. 
+
+-> Strings also have more builtin function.
+
+https://www.cplusplus.com/reference/string/string/
+
+
+-><- Problem with getline() after cin :-
+use cin >> ws to extract all white spaces
+So special care should be taken care of about using getline() after cin because cin ignores white space characters and leaves it in the stream as garbage.
