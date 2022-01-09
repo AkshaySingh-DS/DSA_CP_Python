@@ -14,6 +14,41 @@ and protect you from buffer overruns.
 https://www.cplusplus.com/reference/string/string/
 
 
--><- Problem with getline() after cin :-
+4)<- Problem with getline() after cin :-
 use cin >> ws to extract all white spaces
 So special care should be taken care of about using getline() after cin because cin ignores white space characters and leaves it in the stream as garbage.
+https://www.geeksforgeeks.org/problem-with-getline-after-cin/
+getline(cin >> ws, name);
+
+5)cin -> execution stop -> white space delimeter ->  space, \t, \n)
+6) "My name is akshay" 
+i want it in a charater array -> cin.getline(tex_name, text_len)
+i want it in string -> getline(cin, string_name)
+
+7)For character array : 
+strcmp(s1 ,s2),  for string string1.compare(s2) https://www.cplusplus.com/reference/string/string/compare/
+strcpy(s1, s2), for string  s1 = s2 
+strlen(s), for string -> string.length()
+
+8)string matching
+i) str.find(substr) - > https://www.cplusplus.com/reference/string/string/find/ retrun index else return greater length of string means not found 
+ii) str.erase(start_idx , end_idx) -> https://www.cplusplus.com/reference/string/string/erase/
+
+9)more string function ->https://www.cplusplus.com/reference/string/string/back/
+i)str.back()
+ii)string.push_back()
+iio)string.pop_back() treated as stack at some point.
+
+10) Multidimensional arrays (2D-Arrays) are stored in contigous ways(linear way)
+
+EX:
+2-d arrays -> M * N (M -> rows, N -> columns)
+1 2 3 4 
+5 6 7 8 
+9 10 11 12
+
+phisically : [1 2 3 4 5 6 7 8 9 10 11 12] 
+
+to get the element 6 -> N * i(row) + j(col) in 2-d array fetch
+from 6 how to get the col and rows: rows_i -> (elemnt_pos_in linear)/(N),  col_j -> (elemnt_pos_in linear)/) % N
+NOTE  : Always specifiy the 2nd col size while passing through function
