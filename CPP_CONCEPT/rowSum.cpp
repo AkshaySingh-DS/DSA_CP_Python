@@ -12,6 +12,24 @@ void printArray(int arr[][4], int row, int col){
         cout << endl;
     }
 }
+
+int largestSumRow(int arr[][4], int row, int col){
+
+    int max = INT_MIN, idx;
+    for(int r = 0; r < row; r++){
+        int sum = 0;
+        for(int c = 0; c < col; c++)
+            sum += arr[r][c];
+        
+        if (max < sum){
+            max = sum;
+            idx = r;
+        }
+    }
+    cout << max << endl;
+
+    return idx;
+}
 int main(){
     int arr[3][4];
 
@@ -34,5 +52,8 @@ int main(){
         
         cout << sum << endl;
     }
+    cout << endl;
+    //get the row whose sum is maximum with sum amount
+    cout << largestSumRow(arr, 3, 4) << endl;
     return 0;
 }
