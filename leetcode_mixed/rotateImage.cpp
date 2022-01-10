@@ -59,14 +59,20 @@ void rotate(vector<vector<int>>& matrix) {
         //swap the first coilumn to last and keep on inwarding
         //two pointer approach
         
-        int startCol = 0;
+        /* int startCol = 0;
         int endCol = columns - 1;
         
         for(int startCol = 0, endCol = columns-1; startCol < endCol; startCol++, endCol-- ){
             
             for(int r = 0; r < rows ; r++)
-                swap(matrix[r][startCol], matrix[r][endCol]);
-        }
+                swap(matrix[r][startCol], matrix[r][endCol]); 
+        }  */
+        
+        //revrese transpose matrix
+        for(int i = 0 ; i < rows ; i++ )
+                reverse(matrix[i].begin(), matrix[i].end());
+    }
+        
     }
 /*
 Python solution : 
