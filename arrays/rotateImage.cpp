@@ -67,7 +67,11 @@ void rotate(vector<vector<int>>& matrix) {
             for(int r = 0; r < rows ; r++)
                 swap(matrix[r][startCol], matrix[r][endCol]);
         }
+         //APpraoch 3rd - revrese transpose matrix
+        /* for(int i = 0 ; i < rows ; i++ )
+                reverse(matrix[i].begin(), matrix[i].end()); */
     }
+
 /*
 Python solution : 
 
