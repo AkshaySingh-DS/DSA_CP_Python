@@ -1,6 +1,8 @@
 /* Problem statement : https://leetcode.com/problems/subsets/
 Time Complexity : 2^n, where n is the number of elements initailay for which we want to calculate 
 poweset.
+
+BEST DISSCUSSION : https://leetcode.com/problems/subsets/discuss/27278/C%2B%2B-RecursiveIterativeBit-Manipulation
  */
 #include <iostream>
 #include <vector>
