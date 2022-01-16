@@ -23,7 +23,8 @@ private:
         //include
         output.push_back(nums[idx]);
         powerSet(ans, nums, output, idx + 1);
-        output.pop_back();
+        //dont need to backtrack since output is a local variable of function in case of string we have to back track(passed by refrence)
+        //output.pop_back();
         
     }
 public:
