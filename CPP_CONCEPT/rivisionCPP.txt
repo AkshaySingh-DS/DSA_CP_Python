@@ -52,3 +52,12 @@ phisically : [1 2 3 4 5 6 7 8 9 10 11 12]
 to get the element 6 -> N * i(row) + j(col) in 2-d array fetch
 from 6 how to get the col and rows: rows_i -> (elemnt_pos_in linear)/(N),  col_j -> (elemnt_pos_in linear)/) % N
 NOTE  : Always specifiy the 2nd col size while passing through function
+
+11) In 2D vector
+i) get the number of rows -> vector.size()
+ii) get the number of colums - > vector[i].size()
+iii) Initialization of 2-D vector (to avoid the segmentation faults)
+
+vector <vector<int>> m(4) 4 rows but columns are not define
+vector <vector<int>> m(4, vector<int> (5)) 4 rows and 5 columns, hence 4 * 5 is the size of vector.  
+
