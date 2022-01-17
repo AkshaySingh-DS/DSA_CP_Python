@@ -52,7 +52,7 @@ CPP Solution:
     int countArr2 [26] = {0};
     
     if (a.length() != b.length())
-        return false
+        return false;
     
     for(int i = 0; i < a.length(); i++){
         
