@@ -11,10 +11,11 @@ def reverseWords(s):
 
 text = input()
 reverseWords(text)
+
 """
 CPP Solution
 class Solution {
-public:
+public:  
     bool isSpace(char ch){
         
         if (ch == ' ')
@@ -56,4 +57,69 @@ public:
         return ans;     
     }
 };
+"""
+
+"""
+follow up: space O(1) in CPP
+class Solution {
+public:
+    bool isSpace(char ch){
+        
+        if (ch == ' ')
+            return true;
+        
+        return false;
+}
+    
+    string reverseWords(string s) {
+    
+        int i = 0, r = 0, l = 0;
+        int size = s.length();
+        
+        //reverse the string
+        reverse(s.begin(), s.end());
+        
+        
+        //two pointers approach
+        while (i < size){
+            //fill the words to 
+            while (i < size and !isSpace(s[i]))
+                s[r++] = s[i++];
+            
+            //get the space and get the word
+            if (l < r){
+                
+                //reverse the word
+                reverse(s.begin() + l, s.begin() + r); // here r pointing to space but it is upperbound in reverse
+                
+                //append the space after word
+                if (r >= size) break;
+                 
+                //else append space 
+                s[r++] = ' ';
+                
+                //remmeber where next word we have to place (starting index)
+                l = r;
+            }
+           
+            //pointing to the next word or next space 
+            i++;           
+        }
+        
+        if(s[r-1] == ' ') r--; //skip the space after the last word
+        
+        s.resize(r);   
+        return s;
+    }
+};
+
+
+Algorithm:
+Reverse whole string.
+Again maintain two indices i and j for starting and ending of word, Twist is this time i will not point to 
+starting of word but instead to the first leading space, Reason for the same is when we will call reverse 
+on i..j, It will brinng word in the front and spaces to the back, In this way we will make all space to the 
+trailing ones.
+One more thing is we will rev(i,j) when i==0. Reason is in this there might not be a single space, 
+For other cases it is clearly mentioned that there will be at least 1 space b/w words.
 """
