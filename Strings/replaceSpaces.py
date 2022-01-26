@@ -16,8 +16,8 @@ def replaceSpaces(str):
             
     return text
 
-
-"""
+ 
+""" 
 CPP Solution:
 O(N) : space complexity
 bool isSpace(char ch){
