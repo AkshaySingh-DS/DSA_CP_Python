@@ -66,3 +66,6 @@ https://www.geeksforgeeks.org/bitsstdc-h-c/
 It is basically a header file that includes every standard library. In programming contests, using this file
 is a good idea, when you want to reduce the time wasted in doing chores; especially when your rank is time sensitive. 
 
+13) isdigit(char), isalpha(char), isalnum(char) similar to python methods
+reference: https://www.geeksforgeeks.org/isalnum-function-c-language/
+
