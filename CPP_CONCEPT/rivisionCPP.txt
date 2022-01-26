@@ -61,3 +61,8 @@ iii) Initialization of 2-D vector (to avoid the segmentation faults)
 vector <vector<int>> m(4) 4 rows but columns are not define
 vector <vector<int>> m(4, vector<int> (5)) 4 rows and 5 columns, hence 4 * 5 is the size of vector.  
 
+12) use bits/stdc++.h as a header file 
+https://www.geeksforgeeks.org/bitsstdc-h-c/
+It is basically a header file that includes every standard library. In programming contests, using this file
+is a good idea, when you want to reduce the time wasted in doing chores; especially when your rank is time sensitive. 
+
