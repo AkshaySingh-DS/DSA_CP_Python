@@ -12,8 +12,16 @@ class Node{
         this -> data = data;
         this -> next = NULL;
     }
+    /* ~Node(){
+
+        if(this -> next != NULL){
+            delete next;
+            this -> next = NULL;
+        }
+    } */
 };
 
+//insertion methods
 void insertAtHead(Node * &head, int data){
 
     //new node at head
@@ -62,6 +70,43 @@ void insertAtPosition(Node* &tail, Node* &head, int pos, int data){
     temp -> next = node;
 }
 
+//deletions methods
+void deleteAtFront(Node* &head){
+
+    //assuming at least two nodes
+    Node *temp = head;
+    head = head -> next;
+    temp -> next= NULL;
+    delete temp;
+}
+
+void deleteAtPos(Node *&head, int pos){
+
+    //if node is at front
+
+    if(pos == 1){
+
+        deleteAtFront(head);
+        return ;
+    }
+    
+    Node *prev = NULL;
+    Node *current = head;
+    int cnt = 1;
+    while (cnt < pos){
+
+        prev = current;
+        current = current -> next;
+        cnt++;
+    } 
+    //assuming we are not having any tail
+    prev -> next = current -> next;
+    current -> next = NULL;
+    delete current;
+}
+
+
+
 void printList(Node* head){
 
     Node* temp = head;
@@ -73,6 +118,7 @@ void printList(Node* head){
     }
     cout << endl;
 }
+
 
 int main(){
 
@@ -106,6 +152,16 @@ int main(){
     cout << "Head : " << head -> data << endl;
     cout << "Tail : " << tail -> data << endl;
 
+    //delete at front
+    deleteAtFront(head);
 
+    //printlist
+    printList(head);
+
+    //delete at position
+    deleteAtPos(head, 3);
+
+    //printlist
+    printList(head);
     return 0;
 }
