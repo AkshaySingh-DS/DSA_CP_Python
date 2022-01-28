@@ -129,11 +129,11 @@ class Linkedlist:
     
     def deleteBykey(self, key):
 
-        # empty list
-        if self.head== None:
+        #empty list
+        if self.head == None:
             return False
 
-        # if head node to be deleted
+        #if head node to be deleted
         if self.head.data == key:
             self.head = self.head.next
             return True
@@ -149,11 +149,7 @@ class Linkedlist:
             prev_temp = temp
             temp = temp.next
 
-        return False
-
-    
-    
-           
+        return False        
         
 """     def mergingList(self, llist2):
         if self.head == None:
@@ -215,6 +211,16 @@ if __name__ == "__main__":
     print()
     llist1.deletionAtPos(4)
     llist1.printList()    
+
+    #deletion by key
+    print()
+    key_item = 30
+    ans = llist1.deleteBykey(key_item)
+    if ans:
+        print(f"{key_item} has been deleted successfully")
+        llist1.printList()
+    else:
+        print(f'{key_item} not found')
     
 
     """ # insertAtmiddle(check this not workin g for even)
@@ -230,16 +236,8 @@ if __name__ == "__main__":
     print()
     key_item = int(input())
     print(llist1.searchByKey(key_item))
+    """
 
-    # deletion
-    print()
-    ans = llist1.deleteBykey(key_item)
-    if ans:
-        print(f"{key_item} has been deleted successfully")
-        llist1.printList()
-    else:
-        print(f'{key_item} not found')
-        """
 
     """ # merging linkedList
     llist2 = Linkedlist()

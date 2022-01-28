@@ -70,7 +70,7 @@ void insertAtPosition(Node* &tail, Node* &head, int pos, int data){
     temp -> next = node;
 }
 
-//deletions methods
+//deletions methods (Assuming we have at least one node to delete)
 void deleteAtFront(Node* &head){
 
     //assuming at least two nodes
@@ -104,7 +104,34 @@ void deleteAtPos(Node *&head, int pos){
     current -> next = NULL;
     delete current;
 }
+bool deleteNodeByKey(Node * &head, int key){
 
+    Node *current = head;
+    Node *prev = NULL; 
+
+    //boundruy case when data itself present at head
+    if (head -> data == key){
+
+        Node *t = head;
+        head = head -> next;
+        t -> next  = NULL;
+        delete t; 
+        return true;
+    }
+
+    while(current != NULL){
+
+        if  (current -> data == key){
+            prev -> next = current -> next;
+            current -> next = NULL;
+            delete current;
+            return true;
+        }
+        prev = current;
+        current  = current -> next;
+    }
+    return false;
+}
 
 
 void printList(Node* head){
@@ -163,5 +190,17 @@ int main(){
 
     //printlist
     printList(head);
+
+    //delete node by key
+    bool status = deleteNodeByKey(head, 82);
+
+    if (status)  cout << "Node 82 has been deleted" << endl;
+    else cout << "Node is not present" << endl;
+
+    //printlist
+    printList(head);
+
+
+
     return 0;
 }
