@@ -146,6 +146,36 @@ void printList(Node* head){
     cout << endl;
 }
 
+int getLength(Node *head){
+
+    Node *temp = head;
+    int cnt = 0;
+    while(temp){
+        temp = temp -> next;
+        cnt++;
+    }
+
+    return cnt;
+}
+
+Node * findMiddle(Node *head) {
+    // Write your code here
+    //if only one node or list is empty
+    if(head -> next == NULL || head == NULL)
+        return head;
+    
+    Node *t = head;
+    int cnt = 1; 
+    int length = getLength(t);
+    cout << length << endl;
+    
+    while (cnt <= length/2){       
+        t = t -> next;
+        cnt++;   
+    }   
+
+    return t;
+}
 
 int main(){
 
@@ -174,6 +204,11 @@ int main(){
 
     //printlist
     printList(head);
+    //midile of list
+    int l = getLength(head);
+    cout << "Length of list: " << l <<endl;
+    Node *middle = findMiddle(head);
+    cout << "middle node : " << middle -> data << endl;
 
     //check the head and tail
     cout << "Head : " << head -> data << endl;
@@ -190,6 +225,8 @@ int main(){
 
     //printlist
     printList(head);
+    l = getLength(head);
+    cout << "Length of list: " << l <<endl;
 
     //delete node by key
     bool status = deleteNodeByKey(head, 82);
@@ -200,7 +237,11 @@ int main(){
     //printlist
     printList(head);
 
-
+    //midile of list
+    l = getLength(head);
+    cout << "Length of list: " << l <<endl;
+    middle = findMiddle(head);
+    cout << "middle node : " << middle -> data << endl;
 
     return 0;
 }
