@@ -42,38 +42,3 @@ class Solution
         return head;
     }
 };
-class Solution
-{
-    public:
-    //Function to remove duplicates from unsorted linked list.
-    Node * removeDuplicates( Node *head) {
-     // your code goes here
-        Node *prev = NULL, *curr = head;
-        
-        //this map is going to be our visited list of node->data
-        unordered_map <int, bool> map;
-        
-        while(curr != NULL){
-            
-            //duplicate found -> remove the duplicate 
-            if(map.find(curr -> data) != map.end()){
-                
-                prev -> next = curr -> next;
-                curr -> next = NULL;
-                delete curr;
-                curr = prev -> next;
-                
-            }
-            //unseen data value then keep this unseen in map for future to find the duplicates
-            else{
-                map[curr -> data] = true;
-                prev = curr;
-                curr = curr -> next;
-            }
-        }
-        
-        return head;
-    }
-};
-
-
