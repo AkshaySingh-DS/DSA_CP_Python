@@ -1,6 +1,6 @@
 """Problem Statement : https://leetcode.com/problems/merge-two-sorted-lists/
-Time Complexity :  O(N)
-Space Comlpexity : O(1) on iterative approach and O(n) in recursive approach
+Time Complexity :  O(M + N) more precisely O(min(M, N))
+Space Comlpexity : O(1) on iterative approach and O(min(M, N)) in recursive approach
 """
 
 # Definition for singly-linked list.
