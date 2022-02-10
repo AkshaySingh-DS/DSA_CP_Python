@@ -1,7 +1,7 @@
 /* Problem Statement : https://leetcode.com/problems/sort-list/submissions/
 Time complexity : O(N log N)
 space complexity : O(N log N ) since we are using recursion in merge procedure
-it will be O(logn )
+it will be O(logn ) if we'll use iterative merge procedure
 
 for better space complexity follow up O(1) approach:
 https://leetcode.com/problems/sort-list/discuss/166324/c%2B%2B-and-java-legit-solution.-O(nlogn)-time-and-O(1)-space!-No-recursion!-With-detailed-explaination 
