@@ -1,7 +1,8 @@
 /* Problem Statement : https://www.codingninjas.com/codestudio/problems/sort-linked-list-of-0s-1s-2s_1071937
-Time Complexity :  
-Space Comlpexity :  
+Time Complexity :  O(N)
+Space Comlpexity : O(1)
 */
+
 #include <iostream>
 using namespace std;
 
