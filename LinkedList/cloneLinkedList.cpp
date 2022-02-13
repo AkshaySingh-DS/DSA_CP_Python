@@ -98,3 +98,100 @@ class Solution{
         
         return clonehead; 
 };
+
+//approach - 3 using O(1) space
+class{
+    private:
+        void insertAtTail(Node* &head, Node* &tail, Node* original){
+            
+            //if list is empty
+            Node *newnode = new Node(original -> data);
+            if (head == NULL){
+                
+                head = newnode;
+                tail = head;
+                return;
+            }
+            
+            tail -> next = newnode;
+            tail = newnode;
+        }
+    
+    public:
+    Node *copyList(Node *head)
+    {
+        Node *original =  head;
+        Node *clonehead = NULL;
+        Node *clonetail = NULL;
+        
+        //step-1 creating the list from the original one
+        while(original){
+            
+            insertAtTail(clonehead, clonetail, original);
+            original = original -> next;
+        }
+        
+        original = head;
+        Node *cptr = clonehead;
+        
+        //step-2 adding the cloned list node in b/w the original ones
+        while (original != NULL){
+            
+            //save the next of original
+            Node *next = original -> next; 
+            
+            //update the orginal so that it points to the cloned list node
+            original -> next = cptr;
+            
+            //update original again to next
+            original = next;
+            
+            //save the next of cloned list
+            next = cptr -> next;
+            
+            //update the cloned node so that it points to the original list node
+            cptr -> next = original;
+            
+            //update cloned node ptr again to next
+            cptr = next;
+        }
+        
+        //step-3 update the random pointers to cloned list as well 
+        original = head;
+        while (original != NULL){
+            
+            //if original hacve the random point to some node
+            
+            //original -> next will be the corrsponding cloned node and random of that we want to update
+            if (original -> arb != NULL)
+                original -> next -> arb = original -> arb -> next ;// cloned list node where, cloned node of random correspoding to the orginal will point to 
+                
+            original = original -> next -> next;
+            
+        }
+        
+        //step-4 now revert back the 2nd step where we ahve added the cloned node in b/w the original nodes 
+        original = head;
+        
+        while (original != NULL){
+            
+            //get the clone node
+            Node *clone = original -> next;
+            
+            //update the original list
+            original -> next = clone -> next;
+            
+            //update the original position 
+            original = original -> next;
+            
+            //for last original node case original might be NULL and then null->next will create issue
+            if(original != NULL)
+                clone -> next = original -> next;
+            
+            //else clone ->next already consist the null 
+        }
+        
+        return clonehead;
+    } 
+
+};
