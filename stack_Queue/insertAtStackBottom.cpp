@@ -7,7 +7,7 @@ Approach : try to save the top element then pop it, and then insert at bottom th
 */
 
 #include <iostream>
-#include <stck>
+#include <stack>
 using namespace std;
 
 void solve(stack<int>& myStack, int k){
