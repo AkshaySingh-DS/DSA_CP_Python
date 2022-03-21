@@ -1,5 +1,8 @@
 /* 
 Problem Statement : https://practice.geeksforgeeks.org/problems/circular-tour/1
+or 
+https://www.codingninjas.com/codestudio/problems/find-the-first-circular-tour-that-visits-all-the-petrol-pumps_799923
+
 Using Approach-3
 Time Complexity: O(N)
 Space Complexity: O(1)
@@ -8,7 +11,6 @@ Approach-1 : Using two loops brute force time -> O(N^2), space-> O(1)
 Approach-2 : Using Queue Data structure time -> O(N), space-> O(1) will use given array as a queue
 Approach-3 : Using Deficit variable, that will help to not visit already visired petrol pumps
 */
-
 
 #include <iostream>
 using namespace std;
@@ -50,10 +52,36 @@ class Solution{
     }
     
     //we are adding it since deficit will be in -ve
-    if (balance + deficit >= 0)
-        return start;
-    
-    return -1;
+    return deficit + balance >=0 ? start: -1;
         
     }
 };
+
+//using queue
+int tour(petrolPump p[],int n)
+    {
+       int start = 0;
+        int end = 1;
+        int bal = p[start].petrol - p[start].distance;
+        
+        while (start != end || bal < 0){
+            
+            // dequeue 
+            while (bal < 0 && start != end){
+                
+                bal -= p[start].petrol - p[start].distance;
+                
+                start = (start +1) % n;
+                
+                if (start == 0)
+                    return -1;
+            }
+            
+            //enqueue
+            bal += p[start].petrol - p[start].distance;
+            end = (end + 1) % n;
+        }
+        
+        return start;
+        
+}

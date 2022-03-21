@@ -78,8 +78,10 @@ public:
         
         for(int i = 0; i < size; i++){
             
-            //calculate each bar Area
-            int area = heights[i] * ((right[i] == -1 ? size : right[i]) - left[i] -1); //if right index '-1' i.e. right index we have to make 'size' that means for current bar no such element of its right is lesser.  
+            if (right[i] == -1)
+                right[i] = size;
+            
+            int area = heights[i] * (right[i] - left[i] -1); //if right index '-1' i.e. right index we have to make 'size' that means for current bar no such element of its right is lesser.  
             maxArea = max(area, maxArea);
             
         }
