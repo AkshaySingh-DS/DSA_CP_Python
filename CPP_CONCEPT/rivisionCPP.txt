@@ -69,3 +69,11 @@ is a good idea, when you want to reduce the time wasted in doing chores; especia
 13) isdigit(char), isalpha(char), isalnum(char) similar to python methods
 reference: https://www.geeksforgeeks.org/isalnum-function-c-language/
 
+14) How to convert a string to an int in C++
+
+Using Stoi(string), string = "2"
+for character ch = '2' -> '2'- '0'
+
+https://www.educative.io/edpresso/how-to-convert-a-string-to-an-int-in-cpp
+
+
