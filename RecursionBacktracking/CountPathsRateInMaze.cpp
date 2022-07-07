@@ -1,26 +1,30 @@
+/* Probelem Statement:Consider a rat placed at (0, 0) in a square matrix of order N * N. It has to reach 
+the destination at (N - 1, N - 1). Count all possible paths that the rat can take to reach from source 
+to destination. The directions in which the rat can move are 'U'(up), 'D'(down), 'L' (left), 'R' (right). 
+Value 0 at a cell in the matrix represents that it is blocked and rat cannot move to it while value 1 at 
+a cell in the matrix represents that rat can be travel through it.
+
+NOTE: Note: In a path, no cell can be visited more than one time. If the source cell is 0, the rat 
+cannot move to any other cell. */
+
 #include <iostream>
 using namespace std;
 
-/* NOTE: assuming path always exists except entry block 0, 0
-time complexity -> O(4^(M*N))
-space complexity -> O(M*N) for visited as well as depth of recxursion */
 
-void possiblePathsToReach(int i, int j, int arr[][1000], int n, string ans, int vis[][1000]){
+int possiblePathsToReach(int i, int j, int arr[][1000], int n, int vis[][1000]){
 
     //base case
-    if (i == n-1 and j == n-1){
-
-        cout << ans << endl;
-        return;
-    } 
+    if (i == n-1 and j == n-1)
+        return 1;
     
     //rec case
+    int ways = 0;
     
     //down move
     if(i+1 < n and arr[i+1][j] == 1 and vis[i+1][j] == 0){
         //visit this index
         vis[i][j] = 1; //don't visit this cell again in further calls not untill and unless this path is included   
-        possiblePathsToReach(i+1, j, arr, n, ans + 'D', vis);
+        ways += possiblePathsToReach(i+1, j, arr, n, vis);
         vis[i][j] = 0;////bactrack step
 
     }
@@ -29,7 +33,7 @@ void possiblePathsToReach(int i, int j, int arr[][1000], int n, string ans, int 
     if(j-1 >= 0 and arr[i][j-1] == 1 and vis[i][j-1] == 0){
         //visit this index
         vis[i][j] = 1;
-        possiblePathsToReach(i, j-1, arr, n, ans + 'L', vis);
+        ways += possiblePathsToReach(i, j-1, arr, n, vis);
         vis[i][j] = 0;////bactrack step
     }
 
@@ -37,7 +41,7 @@ void possiblePathsToReach(int i, int j, int arr[][1000], int n, string ans, int 
     if(j+1 < n and arr[i][j+1] == 1 and vis[i][j+1] == 0){
         //visit this index
         vis[i][j] = 1; 
-        possiblePathsToReach(i, j+1, arr, n, ans + 'R', vis);
+        ways += possiblePathsToReach(i, j+1, arr, n, vis);
         vis[i][j] = 0; ////bactrack step
     }
 
@@ -45,10 +49,11 @@ void possiblePathsToReach(int i, int j, int arr[][1000], int n, string ans, int 
     if(i-1 >= 0 and arr[i-1][j] == 1 and vis[i-1][j] == 0){
         //visit this index
         vis[i][j] = 1;
-        possiblePathsToReach(i-1, j, arr, n, ans + 'U', vis);
+        ways += possiblePathsToReach(i-1, j, arr, n, vis);
         vis[i][j] = 0; //bactrack step
     }
     
+    return ways;
 }
 
 int main(){
@@ -62,11 +67,14 @@ int main(){
     }
 
     int visited [1000][1000]= {0};
-    string ans = "";
+    
+    int total_ways;
+    
     if (maze[0][0] != 0)
-        possiblePathsToReach(0, 0, maze, n,  ans, visited);
+        total_ways = possiblePathsToReach(0, 0, maze, n, visited);
     
     else cout << "Not possible since the entry is blocked" << endl;
     
+    cout << "Total paths to reach destination is: " << total_ways << endl;
     return 0;
 }
