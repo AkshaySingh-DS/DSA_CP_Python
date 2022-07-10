@@ -64,6 +64,42 @@ int main(){
 
     //vector empty or not i.e. 0 -> flase , 1 -> true
     cout << v.empty() << endl;
+
+    //1-D array vector initialization with some values
+    vector <int> m{4, 2, 1, 7};
+
+    for(int i = 0; i < 4 ;i++){
+        cout << m[i] << " ";
+    }
+
+    //vector initialization with some diffrent vector by copying 
+    cout << endl;
+    vector <int> v(m.begin(), m.end());
+    for(int i = 0; i < 4 ;i++){
+            cout << v[i] << " ";
+    }
+
+    //2-D vetor initialization
+    vector <vector<int>> m(4, vector<int> (5, 1));
+
+    for(int i = 0; i < 4 ;i++){
+
+        for(int j =0 ; j < 5; j++){
+            cout << m[i][j] << " ";
+        }
+    }
+
+    //2-d false bool array
+    vector <vector<int>> m(2, vector<int> (3, false));
+
+    for(int i = 0; i < 2 ;i++){
+
+        for(int j =0 ; j < 3; j++){
+            cout << m[i][j] << " ";
+        }
+        cout << endl; 
+    }
+
      
     return 0;
 }
