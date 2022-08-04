@@ -9,6 +9,7 @@ int main(){
 
     queue <string> q;
 
+    //q.push() for insretion at rear, q.pop() for deletion at front. 
     //insertion from rear
     q.push("Manu");
     q.push("Akshay");
@@ -25,5 +26,16 @@ int main(){
     cout << "After deletion of queue Get Front : " << q.front() << endl;
 
     cout << "size after pop : " << q.size() << endl; 
+
+    q.pop();
+    q.pop();
+    q.pop();
+
+    if (q.empty()){
+        cout << "Queue is  empty" << endl;
+    }
+    else{
+        cout << "Queue is not empty" << endl;
+    }
     return 0;
 }
