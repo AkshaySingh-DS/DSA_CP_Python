@@ -1,7 +1,6 @@
 /* 
 https://www.codingninjas.com/codestudio/problems/ninja-s-contract_1459321
 */
-
 #include <iostream>
 #include<limits.h>
 #include <vector>
