@@ -113,7 +113,7 @@ public:
 };
 
 //Using Tabulation with space optimization
-//Time complexity: O(N * Amount), space complexity: O(Amount) for prev and curr array
+//Time complexity: O(N * Amount), space complexity: O(Amount) for prev array
 class Solution4 {
 public:
     int change(int amount, vector<int>& coins){
